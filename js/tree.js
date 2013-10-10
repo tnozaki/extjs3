@@ -112,7 +112,7 @@ Ext.define('My.tree.TreeNodeUI', {
           ui.hasPartialChildren(parent)
         );
       });
-            }
+    }
   }
 });
 
