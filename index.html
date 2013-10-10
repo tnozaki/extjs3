@@ -1,0 +1,74 @@
+<html lang="ja">
+<!--
+ Copyright (c)2013 Takehiko NOZAKI,
+ All rights reserved.
+
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+
+ THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+ ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+ FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ SUCH DAMAGE.
+-->
+  <head>
+    <meta charset="UTF-8">
+    <title>Tri-state Checkbox Tree</title>
+    <link rel="stylesheet" type="text/css" href="ext/resources/css/ext-all.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/tree.css">
+    <script src="ext/adapter/ext/ext-base.js"></script>
+    <script src="ext/ext-all.js"></script>
+    <script src="js/tree.js"></script>
+    <script>
+      Ext.onReady(function() {
+        var tree = new Ext.tree.TreePanel({
+          renderTo: 'tree-div',
+          height: 300,
+          width: 400,
+          autoScroll: true,
+          cascading: true,
+          dataUrl: 'data.json',
+          root: {
+            checked: false
+          },
+          rootVisible: false,
+          tbar: [
+            new Ext.Button({
+              text: 'Get checked nodes',
+              handler: function() {
+                var records = tree.getChecked();
+                var names = new Array();
+                Ext.each(records, function(record) {
+                  names.push(record.attributes['text']);
+                });
+                Ext.MessageBox.show({
+                  title: 'Selected Nodes',
+                  width: 300,
+                  msg: names.join(', '),
+                  icon: Ext.MessageBox.INFO
+                });
+              }
+            })
+          ]
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Tri-state Checkbox Selection in a TreePanel</h1>
+    <div id="tree-div"></div>
+  </body>
+</html>

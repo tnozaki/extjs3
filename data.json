@@ -1,0 +1,67 @@
+[
+  {
+    "text": "To Do", 
+    "expanded": true,
+    "children": [
+      {
+        "text": "Go jogging",
+        "leaf": true
+          },
+      {
+        "text": "Take a nap",
+        "leaf": true
+      },
+      {
+        "text": "Climb Everest",
+        "leaf": true
+      }
+    ]
+  },
+  {
+    "text": "Grocery List",
+    "children": [
+      {
+        "text": "Bananas",
+        "leaf": true
+      },
+      {
+        "text": "Milk",
+        "leaf": true
+      },
+      {
+        "text": "Cereal",
+        "leaf": true
+      },
+      {
+              "text": "Energy foods",
+        "children": [
+          {
+            "text": "Coffee",
+            "leaf": true
+          },
+          {
+            "text": "Red Bull",
+            "leaf": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Remodel Project", 
+    "children": [
+      {
+        "text": "Finish the budget",
+        "leaf": true
+      },
+      {
+        "text": "Call contractors",
+        "leaf": true
+      },
+      {
+        "text": "Choose design",
+        "leaf": true
+      }
+    ]
+  }
+]
