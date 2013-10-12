@@ -119,7 +119,7 @@ Ext.define('My.tree.TreeNodeUI', {
 Ext.define('My.tree.TreePanel', {
   override: 'Ext.tree.TreePanel',
   inherit: {
-    initComponent: Ext.tree.TreePanel.prototype.initComponent,
+    initEvents: Ext.tree.TreePanel.prototype.initEvents,
     getChecked: Ext.tree.TreePanel.prototype.getChecked,
     setRootNode: Ext.tree.TreePanel.prototype.setRootNode
   },
@@ -134,8 +134,8 @@ Ext.define('My.tree.TreePanel', {
     }
     this.fireCheckUpdate();
   },
-  initComponent: function() {
-    this.inherit.initComponent.apply(this, arguments);
+  initEvents: function() {
+    this.inherit.initEvents.apply(this, arguments);
     this.addEvents(
       'checkupdate'
     );
