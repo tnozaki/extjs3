@@ -36,6 +36,7 @@
       Ext.onReady(function() {
         var tree = new Ext.tree.TreePanel({
           renderTo: 'tree-div',
+          title: 'My Task List',
           height: 300,
           width: 400,
           autoScroll: true,
@@ -45,20 +46,21 @@
             checked: false
           },
           rootVisible: false,
-          tbar: [
+          buttons: [
             new Ext.Button({
-              text: 'Get checked nodes',
+              text: 'Get Completed Tasks',
               handler: function() {
                 var records = tree.getChecked();
                 var names = new Array();
                 Ext.each(records, function(record) {
                   names.push(record.attributes['text']);
                 });
-                Ext.MessageBox.show({
+                Ext.Msg.show({
                   title: 'Selected Nodes',
-                  width: 300,
+                  minWidth: 300,
                   msg: names.join(', '),
-                  icon: Ext.MessageBox.INFO
+                  icon: Ext.Msg.INFO,
+                  buttons: Ext.Msg.OK
                 });
               }
             })
